@@ -24,8 +24,8 @@ include('configuration.php'); //using database connection file here
         $db->close(); // Close connection
     
         echo "Project added successfully";
-        header("location:homepage.php"); // redirects to home page
-        
+        header("location:projects.php"); // redirects to home page
+
     exit;
     }
 ?>
