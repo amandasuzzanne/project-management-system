@@ -39,6 +39,8 @@
 	<td>".$row['institution']."</td>
 	<td>".$row['implementation_date']."</td>
 	<td>
+    <a href='editProject.php?id=".$row['project_id']."'>Edit</a>
+    <a href='addTask.php?id=".$row['project_id']."'>Add tasks</a>
 	<a href='deleteProject.php?id=".$row['project_id']."'>Delete</a>
 	</td></tr>";
 	}
@@ -47,3 +49,6 @@
 
 </table>
 </div>
+
+</body>
+</html>

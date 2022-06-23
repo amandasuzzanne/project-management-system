@@ -1,0 +1,80 @@
+<?php
+include('configuration.php'); //using database connection file here
+    
+    //save form data
+    if (!empty($_POST['name']))
+    {
+        $name =  $_POST['name'];
+        $start_date = $_POST['start_date'];
+        $end_date = $_POST['end_date'];
+        
+    $stmt = $db->prepare("INSERT INTO task (name, start_date, end_date) VALUES (?, ?, ?)");
+    $stmt->bind_param("sss", $name, $sdate, $edate);
+
+    //set parameters and execute
+    $name = $name;
+    $sdate = $start_date;
+    $edate = $end_date;
+    
+    if(!$stmt->execute()) 
+        echo "<span style='color:red'>Error while adding task</span>";
+    else
+        $stmt->close();
+        $db->close(); // Close connection
+        
+        header("location:addTask.php"); // redirects to home page
+        echo "Task added successfully";
+    exit;
+    }
+?>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>New Task</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<div class="container">
+<h3>Add a new task</h3>
+
+<style>
+    body{background-color:#767c82;}
+    .container{margin-top:3%;}
+    button:hover {opacity: 0.8;}
+</style>
+</head>
+
+<body>
+<form action="<?php echo $_SERVER['PHP_SELF'];?>" method="post">
+
+<div class="row mb-4">
+    <label for="inputName" class="col-sm-2 col-form-label">Task Name:</label>
+    <div class="col-sm-3">
+    <input type="name" id="inputName" placeholder="Task Name" name="name" class="form-control">
+    </div>
+</div>
+<div class="row mb-4">
+    <label for="inputStartDate" class="col-sm-2 col-form-label">Start Date:</label>
+    <div class="col-sm-3">
+    <input type="date" id="inputStartDate" placeholder="Start Date" name="start_date" class="form-control" >
+    </div>
+</div>
+<div class="row mb-4">
+    <label for="inputEndDate" class="col-sm-2 col-form-label">End Date:</label>
+    <div class="col-sm-3">
+    <input type="date" id="inputEndDate" placeholder="Date" name="end_date" class="form-control" >
+    </div>
+</div>
+
+    <button id="save_btn" type="save" class="btn btn-dark col-sm-1" name="save">Save</button>
+</form>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+
+</body>
+</html>
+    
+    
