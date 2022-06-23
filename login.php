@@ -18,7 +18,7 @@ session_start(); //session to manage
          if($count == 1) 
          { //login successful
             $_SESSION['login_user'] = $myemail;
-            header("location: index.php");
+            header("location: homepage.php");
          }else 
          {
             $error = "Your Email or Password is invalid";
