@@ -1,30 +1,28 @@
 <?php
-include('configuration.php'); //using database connection file here
-
-    //save form data
-    if (!empty($_POST['name']))
-    {
+    //using database connection file here
+    include('configuration.php'); 
+    // handle posted form data
+    if (!empty($_POST['name']) && $_SERVER['REQUEST_METHOD'] == 'POST') {
+        // extract request input
+        $project_id = $_POST['project_id'];
         $name =  $_POST['name'];
         $start_date = $_POST['start_date'];
         $end_date = $_POST['end_date'];
-        
-    $stmt = $db->prepare("INSERT INTO task (name, start_date, end_date) VALUES (?, ?, ?)");
-    $stmt->bind_param("sss", $name, $sdate, $edate);
 
-    //set parameters and execute
-    $name = $name;
-    $sdate = $start_date;
-    $edate = $end_date;
-    
-    if(!$stmt->execute()) 
-        echo "<span style='color:red'>Error while adding task</span>";
-    else
-        $stmt->close();
-        $db->close(); // Close connection
-        
-        header("location:addTask.php"); // redirects to add tasks page
-        echo "Task added successfully";
-    exit;
+        // prepare sql statement
+        $stmt = $db->prepare("INSERT INTO task (project_id, name, start_date, end_date) VALUES (?, ?, ?, ?)");
+        $stmt->bind_param('ssss', $project_id, $name, $start_date, $end_date);
+        $result = $stmt->execute();
+        // close connection and redirect to url
+        if($result) {
+            $stmt->close();
+            $db->close(); 
+            // generate url
+            $url = 'addTask.php?project_id=' . $project_id;
+            header("location:" . $url);
+            echo "Task added successfully";
+            exit;
+        } else echo "<span style='color:red'>Error while adding task</span>";
     }
 ?>
 
@@ -60,7 +58,7 @@ a{
 
 <body>
 <form action="<?php echo $_SERVER['PHP_SELF'];?>" method="post">
-
+<input type="hidden" name="project_id" value="<?php echo $_GET['project_id']; ?>">
 <div class="row mb-4">
     <label for="inputName" class="col-sm-2 col-form-label">Task Name:</label>
     <div class="col-sm-3">
@@ -95,21 +93,20 @@ a{
 <tr> <th>Task</th> <th>Start Date</th> <th>End Date</th> <th></th> <th></th> </tr>
 
 <?php
-    $id = $_GET['id']; //get id through query string
+    $project_id = $_GET['project_id']; //get id through query string
 	$str = '';
-	$sql = "SELECT * FROM task WHERE project_id=".$id;
-	$result = mysqli_query($db,$sql);
+	$sql = "SELECT * FROM task WHERE project_id=".$project_id;
+	$result = mysqli_query($db, $sql);
 	$count = mysqli_num_rows($result);
 
-	while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC))
-	{
-	$str .= "<tr>
-	<td>".$row['name']."</td>
-	<td>".$row['start_date']."</td>
-	<td>".$row['end_date']."</td>
-	<td> <a href='editTask.php?id=".$row['task_id']."'>Edit</a> </td>
-	<td> <a href='deleteTask.php?id=".$row['task_id']."'>Delete</a> </td>
-    </tr>";
+	while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)) {
+        $str .= "<tr>
+        <td>".$row['name']."</td>
+        <td>".$row['start_date']."</td>
+        <td>".$row['end_date']."</td>
+        <td> <a href='editTask.php?project_id=".$project_id.'&task_id='.$row['task_id']. "'>Edit</a> </td>
+        <td> <a href='deleteTask.php?id=".$row['task_id']."'>Delete</a> </td>
+        </tr>";
 	}
 	echo $str;
 ?>

@@ -1,14 +1,19 @@
 <?php
-include('configuration.php'); //using database connection file here
+//using database connection file here
+include('configuration.php'); 
 
-$id = $_GET['id']; //get id through query string
+//get id through query string
+$id = $_GET['id']; 
 
-$deleted = mysqli_query($db, "DELETE FROM project WHERE project_id=".$id); // delete query
+// delete query
+$deleted = mysqli_query($db, "DELETE FROM project WHERE project_id=".$id); 
 
 if($deleted)
 {
-  $db->close(); //close connection
-  header("location:projects.php"); //redirects to projects page
+  //close connection
+  $db->close(); 
+  //redirects to projects page
+  header("location:projects.php"); 
   echo "Deletion done successfully";
   exit;
 } 

@@ -1,6 +1,8 @@
 <?php
-require("configuration.php");//connect to the database
-session_start(); //session to manage
+//connect to the database
+require("configuration.php");
+//session to manage
+session_start(); 
 
 //login and operation
    $error="";
@@ -9,7 +11,8 @@ session_start(); //session to manage
          //email and password sent from form using POST method
          $myemail = mysqli_real_escape_string($db,$_POST['email']);
          $mypassword = mysqli_real_escape_string($db,$_POST['password']);
-         $mypassword = md5($mypassword); //encrypt password
+         //encrypt password
+         $mypassword = md5($mypassword); 
          $sql = "SELECT emp_id FROM users WHERE email = '".$myemail."' and password = '".$mypassword."'";
          $result = mysqli_query($db,$sql);
          $row = mysqli_fetch_array($result,MYSQLI_ASSOC);

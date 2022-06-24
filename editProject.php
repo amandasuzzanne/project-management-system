@@ -1,13 +1,17 @@
 <?php
-include('configuration.php'); // Using database connection file here
+// Using database connection file here
+include('configuration.php'); 
 
-$id = $_GET['id']; // get id through query string
+// get id through query string
+$id = $_GET['id']; 
 
-$query = mysqli_query($db,"SELECT * FROM project WHERE project_id = ".$id); // select query
+// select query
+$query = mysqli_query($db,"SELECT * FROM project WHERE project_id = ".$id); 
+// fetch data
+$data = mysqli_fetch_array($query); 
 
-$data = mysqli_fetch_array($query); // fetch data
-
-if(isset($_POST['update'])) // when click on Update button
+// when click on Update button
+if(isset($_POST['update'])) 
 {
     $name = $_POST['name'];
     $institution = $_POST['institution'];
@@ -17,8 +21,10 @@ if(isset($_POST['update'])) // when click on Update button
 	
     if($edit)
     {
-      $db->close(); // Close connection
-        header("location:addProject.php"); // redirects to all projects page
+        // Close connection
+        $db->close(); 
+        // redirects to all projects page
+        header("location:addProject.php"); 
         exit;
     }
     else

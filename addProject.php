@@ -1,5 +1,6 @@
 <?php
-include('configuration.php'); //using database connection file here
+//using database connection file here
+include('configuration.php'); 
     
     //save form data
     if (!empty($_POST['name']))
@@ -19,14 +20,17 @@ include('configuration.php'); //using database connection file here
   
     if(!$stmt->execute()) 
         echo "<span style='color:white'>Error while adding project</span>";
-    else
+    else{
         $stmt->close();
-        $db->close(); // Close connection
+        // Close connection
+        $db->close(); 
     
         echo "Project added successfully";
-        header("location:addProject.php"); // redirects to home page
+        // redirects to home page
+        header("location:addProject.php"); 
 
     exit;
+    } 
     }
 ?>
 
@@ -149,7 +153,7 @@ a{
 	<td>".$row['implementation_date']."</td>
 	<td>
     <a href='editProject.php?id=".$row['project_id']."'>Edit</a>
-    <a href='addTask.php?id=".$row['project_id']."'>Add tasks</a>
+    <a href='addTask.php?project_id=".$row['project_id']."'>Add tasks</a>
 	<a href='deleteProject.php?id=".$row['project_id']."'>Delete</a>
 	</td></tr>";
 	}

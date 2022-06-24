@@ -1,31 +1,33 @@
 <?php
-include('configuration.php'); // Using database connection file here
+// Using database connection file here
+include('configuration.php'); 
 
-$id = $_GET['id']; // get id through query string
+// extract query string parameter task_id
+$task_id = $_GET['task_id']; 
 
-$query = mysqli_query($db,"SELECT * FROM task WHERE task_id = ".$id); // select query
+// construct url
+$project_id = $_GET['project_id'];
+$url = 'addTask.php?project_id=' . $project_id . '&task_id=' . $task_id;
 
-$data = mysqli_fetch_array($query); // fetch data
+// select query
+$query = mysqli_query($db,"SELECT * FROM task WHERE task_id = ".$task_id); 
+// fetch data
+$data = mysqli_fetch_array($query); 
 
-if(isset($_POST['update'])) // when click on Update button
-{
+// handle form data on clicking update
+if(isset($_POST['update'])) {
+    // extract request input
     $name = $_POST['name'];
     $start_date = $_POST['start_date'];
     $end_date = $_POST['end_date'];
-	
-    $edit = mysqli_query($db,"UPDATE task SET name='$name', start_date='$start_date', end_date='$end_date' where project_id='$id'");
-	
-    if($edit)
-    {
-      $db->close(); // Close connection
-        header("location:addProject.php"); // redirects to all projects page
+	// db insert
+    $edit = mysqli_query($db,"UPDATE task SET name='$name', start_date='$start_date', end_date='$end_date' where task_id='$task_id'");
+	// close connection and redirect to url
+    if($edit) {
+        $db->close();
+        header("location:" . $url); 
         exit;
-    }
-    else
-    {
-        echo mysqli_connect_error();
-    }    
-    
+    } else  echo mysqli_connect_error();
 }
 ?>
 
@@ -85,7 +87,7 @@ a{
    <input type="date" class="form-control" name="end_date" value="<?php echo $data['end_date'] ?>" placeholder="End Date">
    </div>
 </div>
-<a href="addTask.php" class="btn btn-dark col-sm-1">Back</a>
+<a href="<?php echo $url ?>" class="btn btn-dark col-sm-1">Back</a>
 <button type="submit" class="btn btn-dark col-sm-1" name="update">Update</button>
 </form>
 
