@@ -1,8 +1,6 @@
 <?php
 include('configuration.php'); //using database connection file here
 
-$id = $_GET['id']; //get id through query string
-
     //save form data
     if (!empty($_POST['name']))
     {
@@ -10,7 +8,7 @@ $id = $_GET['id']; //get id through query string
         $start_date = $_POST['start_date'];
         $end_date = $_POST['end_date'];
         
-    $stmt = $db->prepare("INSERT INTO task (name, start_date, end_date) VALUES (?, ?, ?) WHERE project_id=".$id);
+    $stmt = $db->prepare("INSERT INTO task (name, start_date, end_date) VALUES (?, ?, ?)");
     $stmt->bind_param("sss", $name, $sdate, $edate);
 
     //set parameters and execute
@@ -109,8 +107,8 @@ a{
 	<td>".$row['name']."</td>
 	<td>".$row['start_date']."</td>
 	<td>".$row['end_date']."</td>
-	<td> <a href='editProject.php?id=".$row['project_id']."'>Edit</a> </td>
-	<td> <a href='deleteProject.php?id=".$row['project_id']."'>Delete</a> </td>
+	<td> <a href='editTask.php?id=".$row['task_id']."'>Edit</a> </td>
+	<td> <a href='deleteTask.php?id=".$row['task_id']."'>Delete</a> </td>
     </tr>";
 	}
 	echo $str;
