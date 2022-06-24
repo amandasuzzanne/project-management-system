@@ -1,14 +1,20 @@
+<?php
+   include('configuration.php');
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 
 <style>
 body {
   font-family: "Lato", sans-serif;
   background-color:#767c82;
+  margin-left: 300px;
 }
 
 .sidenav {
@@ -35,8 +41,12 @@ body {
   color: #f1f1f1;
 }
 
+.container{
+  margin-top:3%;
+}
+
 .main {
-  margin-left: 300px; /* Same as the width of the sidenav */
+ 
 }
 
 @media screen and (max-height: 450px) {
@@ -56,9 +66,34 @@ body {
     <a href="#">Account</a>
     <a href="logout.php">Logout</a>
 </div>
-
+<div class="container">
 <div class="main">
   <h1>Dashboard</h1>
+</div>
+
+
+<h5>Current Projects</h5>
+
+<table class="table table-dark table-hover ">
+<tr> <th>Project Name</th> <th>Implementation Date</th></tr>
+
+<?php
+	$str = '';
+	$sql = "SELECT * FROM project ORDER BY implementation_date";
+	$result = mysqli_query($db,$sql);
+	$count = mysqli_num_rows($result);
+
+	while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC))
+	{
+	$str .= "<tr>
+	<td>".$row['name']."</td>
+	<td>".$row['implementation_date']."</td>
+	</tr>";
+	}
+	echo $str;
+?>
+
+</table>
 </div>
    
 </body>
