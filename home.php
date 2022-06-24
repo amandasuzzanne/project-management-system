@@ -54,7 +54,7 @@ body {
     <a href="#">Project Reports</a>
     <a href="#">Project Visualization</a>
     <a href="#">Account</a>
-    <a href="login.php">Logout</a>
+    <a href="logout.php">Logout</a>
 </div>
 
 <div class="main">
