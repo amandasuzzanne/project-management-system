@@ -1,6 +1,8 @@
 <?php
 include('configuration.php'); //using database connection file here
-    
+
+$id = $_GET['id']; //get id through query string
+
     //save form data
     if (!empty($_POST['name']))
     {
@@ -8,7 +10,7 @@ include('configuration.php'); //using database connection file here
         $start_date = $_POST['start_date'];
         $end_date = $_POST['end_date'];
         
-    $stmt = $db->prepare("INSERT INTO task (name, start_date, end_date) VALUES (?, ?, ?)");
+    $stmt = $db->prepare("INSERT INTO task (name, start_date, end_date) VALUES (?, ?, ?) WHERE project_id=".$id);
     $stmt->bind_param("sss", $name, $sdate, $edate);
 
     //set parameters and execute
@@ -22,7 +24,7 @@ include('configuration.php'); //using database connection file here
         $stmt->close();
         $db->close(); // Close connection
         
-        header("location:addTask.php"); // redirects to home page
+        header("location:addTask.php"); // redirects to add tasks page
         echo "Task added successfully";
     exit;
     }
@@ -79,7 +81,7 @@ a{
     <input type="date" id="inputEndDate" placeholder="Date" name="end_date" class="form-control" >
     </div>
 </div>
-    <a href="projects.php" class="btn btn-dark col-sm-1">Back</a>
+    <a href="addProject.php" class="btn btn-dark col-sm-1">Back</a>
     <button id="save_btn" type="save" class="btn btn-dark col-sm-1" name="save">Save</button>
 </form>
 </div>
@@ -95,8 +97,9 @@ a{
 <tr> <th>Task</th> <th>Start Date</th> <th>End Date</th> <th></th> <th></th> </tr>
 
 <?php
+    $id = $_GET['id']; //get id through query string
 	$str = '';
-	$sql = "SELECT * FROM task ORDER BY start_date";
+	$sql = "SELECT * FROM task WHERE project_id=".$id;
 	$result = mysqli_query($db,$sql);
 	$count = mysqli_num_rows($result);
 

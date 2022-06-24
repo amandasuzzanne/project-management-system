@@ -18,7 +18,7 @@ if(isset($_POST['update'])) // when click on Update button
     if($edit)
     {
       $db->close(); // Close connection
-        header("location:projects.php"); // redirects to all projects page
+        header("location:addProject.php"); // redirects to all projects page
         exit;
     }
     else
@@ -85,7 +85,7 @@ a{
    <input type="date" class="form-control" name="implementation_date" value="<?php echo $data['implementation_date'] ?>" placeholder="Enter Implementation Date">
    </div>
 </div>
-<a href="projects.php" class="btn btn-dark col-sm-1">Back</a>
+<a href="addProject.php" class="btn btn-dark col-sm-1">Back</a>
 <button type="submit" class="btn btn-dark col-sm-1" name="update">Update</button>
 </form>
 
