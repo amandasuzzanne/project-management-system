@@ -3,12 +3,12 @@ include('configuration.php'); //using database connection file here
 
 $id = $_GET['id']; //get id through query string
 
-$deleted = mysqli_query($db, "DELETE FROM project WHERE project_id=".$id); // delete query
+$deleted = mysqli_query($db, "DELETE FROM task WHERE task_id=".$id); // delete query
 
 if($deleted)
 {
   $db->close(); //close connection
-  header("location:projects.php"); //redirects to projects page
+  header("location:addTasks.php"); //redirects to projects page
   echo "Deletion done successfully";
   exit;
 } 
