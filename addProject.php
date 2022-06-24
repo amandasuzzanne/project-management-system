@@ -38,16 +38,72 @@ include('configuration.php'); //using database connection file here
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <div class="container">
-<h3>Add a new project</h3>
 
 <style>
-    body{background-color:#767c82;}
-    .container{margin-top:3%;}
-    button:hover {opacity: 0.8;}
+body{
+    font-family: "Lato", sans-serif;
+    background-color:#767c82;
+    margin-left: 300px;
+}
+
+.container{
+    margin-top:3%;
+}
+    
+button, a:hover{
+    opacity: 0.8;
+}
+
+a{
+    display: inline-block;
+    padding: 8px 16px;
+}
+
+.sidenav {
+  height: 100%;
+  width: 300px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.sidenav a {
+  padding: 6px 6px 6px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
 </style>
 </head>
 
 <body>
+<h1>Add Project</h1>
+
+<div class="sidenav">
+    <a href="home.php">Dashboard</a>
+    <a href="addProject.php">Add Project</a>
+    <a href="#">Event Calendar</a>
+    <a href="#">Project Reports</a>
+    <a href="#">Project Visualization</a>
+    <a href="#">Account</a>
+    <a href="logout.php">Logout</a>
+</div>
+
 <form action="<?php echo $_SERVER['PHP_SELF'];?>" method="post">
 
 <div class="row mb-4">
@@ -74,6 +130,8 @@ include('configuration.php'); //using database connection file here
 
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+
+
 
 </body>
 </html>

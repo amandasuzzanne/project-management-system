@@ -48,7 +48,7 @@ body {
 <body>
 
 <div class="sidenav">
-    <a href="#">Dashboard</a>
+    <a href="home.php">Dashboard</a>
     <a href="addProject.php">Add Project</a>
     <a href="#">Event Calendar</a>
     <a href="#">Project Reports</a>
@@ -58,7 +58,7 @@ body {
 </div>
 
 <div class="main">
-  <h2>Dashboard</h2>
+  <h1>Dashboard</h1>
 </div>
    
 </body>
