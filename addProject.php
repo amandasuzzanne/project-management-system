@@ -152,9 +152,9 @@ a{
 	<td>".$row['institution']."</td>
 	<td>".$row['implementation_date']."</td>
 	<td>
-    <a href='editProject.php?id=".$row['project_id']."'>Edit</a>
-    <a href='addTask.php?project_id=".$row['project_id']."'>Add tasks</a>
-	<a href='deleteProject.php?id=".$row['project_id']."'>Delete</a>
+    <a href='editProject.php?project_id=".$row['id']."'>Edit</a>
+    <a href='addTask.php?project_id=".$row['id']."'>Add tasks</a>
+	<a href='deleteProject.php?project_id=".$row['id']."'>Delete</a>
 	</td></tr>";
 	}
 	echo $str;
