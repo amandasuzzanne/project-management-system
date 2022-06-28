@@ -10,7 +10,7 @@
         $end_date = $_POST['end_date'];
 
         // prepare sql statement
-        $stmt = $db->prepare("INSERT INTO task (project_id, name, start_date, end_date) VALUES (?, ?, ?, ?)");
+        $stmt = $db->prepare("INSERT INTO project_task (project_id, name, start_date, end_date) VALUES (?, ?, ?, ?)");
         $stmt->bind_param('ssss', $project_id, $name, $start_date, $end_date);
         $result = $stmt->execute();
         // close connection and redirect to url
@@ -95,7 +95,7 @@ a{
 <?php
     $project_id = $_GET['project_id']; //get id through query string
 	$str = '';
-	$sql = "SELECT * FROM task WHERE project_id=".$project_id;
+	$sql = "SELECT * FROM project_task WHERE project_id=".$project_id;
 	$result = mysqli_query($db, $sql);
 	$count = mysqli_num_rows($result);
 
@@ -104,8 +104,8 @@ a{
         <td>".$row['name']."</td>
         <td>".$row['start_date']."</td>
         <td>".$row['end_date']."</td>
-        <td> <a href='editTask.php?project_id=".$project_id.'&task_id='.$row['task_id']. "'>Edit</a> </td>
-        <td> <a href='deleteTask.php?id=".$row['task_id']."'>Delete</a> </td>
+        <td> <a href='editTask.php?project_id=".$project_id.'&task_id='.$row['id']. "'>Edit</a> </td>
+        <td> <a href='deleteTask.php?id=".$row['id']."'>Delete</a> </td>
         </tr>";
 	}
 	echo $str;
