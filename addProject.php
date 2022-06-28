@@ -137,7 +137,7 @@ a{
 <h5>Projects</h5>
 
 <table class="table table-dark table-striped table-hover table-bordered">
-<tr> <th>Project Name</th> <th>Institution</th> <th>Implementation Date</th> <th></th></tr>
+<tr> <th>Project Name</th> <th>Institution</th> <th>Implementation Date</th> <th>Status</th><th></th></tr>
 
 <?php
 	$str = '';
@@ -151,6 +151,7 @@ a{
 	<td>".$row['name']."</td>
 	<td>".$row['institution']."</td>
 	<td>".$row['implementation_date']."</td>
+    <td>".$row['status']."</td>
 	<td>
     <a href='editProject.php?project_id=".$row['id']."'>Edit</a>
     <a href='addTask.php?project_id=".$row['id']."'>Add tasks</a>
