@@ -79,7 +79,7 @@ body {
 
 <?php
 	$str = '';
-	$sql = "SELECT * FROM project ORDER BY implementation_date";
+	$sql = "SELECT * FROM project WHERE status='current' ORDER BY implementation_date";
 	$result = mysqli_query($db,$sql);
 	$count = mysqli_num_rows($result);
 
