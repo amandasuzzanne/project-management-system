@@ -10,7 +10,7 @@ $project_id = $_GET['project_id'];
 $url = 'addTask.php?project_id=' . $project_id . '&task_id=' . $task_id;
 
 // select query
-$query = mysqli_query($db,"SELECT * FROM task WHERE task_id = ".$task_id); 
+$query = mysqli_query($db,"SELECT * FROM project_task WHERE id = ".$task_id); 
 // fetch data
 $data = mysqli_fetch_array($query); 
 
@@ -21,7 +21,7 @@ if(isset($_POST['update'])) {
     $start_date = $_POST['start_date'];
     $end_date = $_POST['end_date'];
 	// db insert
-    $edit = mysqli_query($db,"UPDATE task SET name='$name', start_date='$start_date', end_date='$end_date' where task_id='$task_id'");
+    $edit = mysqli_query($db,"UPDATE project_task SET name='$name', start_date='$start_date', end_date='$end_date' where id='$task_id'");
 	// close connection and redirect to url
     if($edit) {
         $db->close();
