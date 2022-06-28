@@ -6,7 +6,7 @@ include('configuration.php');
 $id = $_GET['id']; 
 
 // delete query
-$deleted = mysqli_query($db, "DELETE FROM task WHERE task_id=".$id); 
+$deleted = mysqli_query($db, "DELETE FROM project_task WHERE id=".$id); 
 
 if($deleted)
 {
