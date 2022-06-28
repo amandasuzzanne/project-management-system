@@ -3,10 +3,10 @@
 include('configuration.php'); 
 
 // get id through query string
-$id = $_GET['id']; 
+$id = $_GET['project_id']; 
 
 // select query
-$query = mysqli_query($db,"SELECT * FROM project WHERE project_id = ".$id); 
+$query = mysqli_query($db, "SELECT * FROM project WHERE id = ".$id); 
 // fetch data
 $data = mysqli_fetch_array($query); 
 
@@ -17,7 +17,7 @@ if(isset($_POST['update']))
     $institution = $_POST['institution'];
     $implementation_date = $_POST['implementation_date'];
 	
-    $edit = mysqli_query($db,"UPDATE project SET name='$name', institution='$institution', implementation_date='$implementation_date' where project_id='$id'");
+    $edit = mysqli_query($db,"UPDATE project SET name='$name', institution='$institution', implementation_date='$implementation_date' where id='$id'");
 	
     if($edit)
     {
