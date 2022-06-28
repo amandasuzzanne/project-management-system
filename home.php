@@ -95,7 +95,8 @@ body {
 
 </table>
 </div>
-   
+  
+<div class="container">
 <h5>Completed Projects</h5>
 
 <table class="table table-dark table-hover ">
@@ -116,9 +117,33 @@ body {
 	}
 	echo $str;
 ?>
-
 </table>
 </div>
+
+<div class="container">
+<h5>Suspended Projects</h5>
+
+<table class="table table-dark table-hover ">
+<tr> <th>Project Name</th> <th>Implementation Date</th></tr>
+
+<?php
+	$str = '';
+	$sql = "SELECT * FROM project WHERE status='suspended' ORDER BY implementation_date";
+	$result = mysqli_query($db,$sql);
+	$count = mysqli_num_rows($result);
+
+	while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC))
+	{
+	$str .= "<tr>
+	<td>".$row['name']."</td>
+	<td>".$row['implementation_date']."</td>
+	</tr>";
+	}
+	echo $str;
+?>
+</table>
+</div>
+
 </body>
 </html> 
 
