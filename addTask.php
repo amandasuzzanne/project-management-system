@@ -1,6 +1,7 @@
 <?php
     //using database connection file here
     include('configuration.php'); 
+
     // handle posted form data
     if (!empty($_POST['name']) && $_SERVER['REQUEST_METHOD'] == 'POST') {
         // extract request input
@@ -77,6 +78,21 @@ a{
     <input type="date" id="inputEndDate" placeholder="Date" name="end_date" class="form-control" >
     </div>
 </div>
+
+<div class="row mb-4">
+    <label for="inputEndDate" class="col-sm-2 col-form-label">Assigned</label>
+    <div class="col-3">
+        <select name="assigned" class="form-control">
+            <option value="">-- Select User --</option>
+            <?php $query = mysqli_query($db, "SELECT * FROM users") ?>
+            <?php while($row = mysqli_fetch_array($query, MYSQLI_ASSOC)): ?>
+                <option value="<?php echo $row['id'] ?>">
+                    <?php echo $row['first_name'] . ' ' . $row['last_name'] ?>
+                </option>
+            <?php endwhile; ?>
+        </select>
+    </div>
+</div>
     <a href="addProject.php" class="btn btn-dark col-sm-1">Back</a>
     <button id="save_btn" type="save" class="btn btn-dark col-sm-1" name="save">Save</button>
 </form>
@@ -90,7 +106,13 @@ a{
 <h3>Tasks</h3>
 
 <table class="table table-dark table-striped table-hover">
-<tr> <th>Task</th> <th>Start Date</th> <th>End Date</th> <th></th> <th></th> </tr>
+<tr> 
+    <th>Task</th> 
+    <th>Start Date</th> 
+    <th>End Date</th> 
+    <th></th> 
+    <th></th> 
+</tr>
 
 <?php
     $project_id = $_GET['project_id']; //get id through query string
