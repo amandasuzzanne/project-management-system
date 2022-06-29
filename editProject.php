@@ -5,9 +5,8 @@ include('configuration.php');
 // get id through query string
 $id = $_GET['project_id']; 
 
-// select query
+// select query fetch data
 $query = mysqli_query($db, "SELECT * FROM project WHERE id = ".$id); 
-// fetch data
 $data = mysqli_fetch_array($query); 
 
 // when click on Update button
@@ -16,22 +15,20 @@ if(isset($_POST['update']))
     $name = $_POST['name'];
     $institution = $_POST['institution'];
     $implementation_date = $_POST['implementation_date'];
-	
-    $edit = mysqli_query($db,"UPDATE project SET name='$name', institution='$institution', implementation_date='$implementation_date' where id='$id'");
-	
-    if($edit)
-    {
-        // Close connection
+    $status = $_POST['status'];
+
+    $stmt = $db->prepare('UPDATE project SET name = ?, institution = ?,  implementation_date = ?, status = ? WHERE id = ?');
+    $stmt->bind_param('sssss', $name, $institution, $implementation_date, $status, $id);
+    $result = $stmt->execute();
+
+    if(!$result) echo "<span style='color:red'>Error while editing project</span>";
+    if (!mysqli_affected_rows($db)) echo "<span style='color:red'>Something went wrong! Update failed</span>";
+    else {
+        // close connection and redirect
         $db->close(); 
-        // redirects to all projects page
         header("location:addProject.php"); 
         exit;
-    }
-    else
-    {
-        echo mysqli_connect_error();
-    }    
-    
+    } 
 }
 ?>
 
@@ -91,6 +88,20 @@ a{
    <input type="date" class="form-control" name="implementation_date" value="<?php echo $data['implementation_date'] ?>" placeholder="Enter Implementation Date">
    </div>
 </div>
+<div class="row mb-4">
+<label for="status" class="col-sm-2 col-form-label">Project Status:</label>
+<div class="col-sm-3">
+<select name="status" class="form-control" >
+    <?php foreach (['current', 'completed', 'suspended'] as $value): ?>
+        <option value="<?php echo $value ?>" <?php echo $value == $data['status']? 'selected' : '' ?>>
+            <?php echo ucfirst($value) ?>
+        </option>
+    <?php endforeach; ?>
+</select>
+</div>
+
+</div>
+
 <a href="addProject.php" class="btn btn-dark col-sm-1">Back</a>
 <button type="submit" class="btn btn-dark col-sm-1" name="update">Update</button>
 </form>
