@@ -20,8 +20,9 @@ if(isset($_POST['update'])) {
     $name = $_POST['name'];
     $start_date = $_POST['start_date'];
     $end_date = $_POST['end_date'];
+    $assigned = $_POST['assigned'];
 	// db insert
-    $edit = mysqli_query($db,"UPDATE project_task SET name='$name', start_date='$start_date', end_date='$end_date' where id='$task_id'");
+    $edit = mysqli_query($db,"UPDATE project_task SET name='$name', start_date='$start_date', end_date='$end_date', assigned='$assigned' where id='$task_id'");
 	// close connection and redirect to url
     if($edit) {
         $db->close();
@@ -86,6 +87,22 @@ a{
    <div class="col-sm-3">
    <input type="date" class="form-control" name="end_date" value="<?php echo $data['end_date'] ?>" placeholder="End Date">
    </div>
+</div>
+<div class="row mb-4">
+    <label for="assigned" class="col-sm-2 col-form-label">Assigned:</label>
+    <div class="col-3">
+        <select name="assigned" class="form-control">
+            <option value="">-- Select User --</option>
+            <?php $query = mysqli_query($db, "SELECT * FROM users") ?>
+            <?php while($row = mysqli_fetch_array($query, MYSQLI_ASSOC)): ?>
+                <?php $query_users = mysqli_query($db,"SELECT * FROM project_task WHERE id = ".$task_id); 
+                $data = mysqli_fetch_array($query_users); ?>
+                <option value="<?php echo $row['id'] ?>" <?php $row['id'] == $data['assigned'] ? 'selected' : '' ?>>
+                    <?php echo $row['first_name'] . ' ' . $row['last_name'] ?>
+                </option>
+            <?php endwhile; ?>
+        </select>
+    </div>
 </div>
 <a href="<?php echo $url ?>" class="btn btn-dark col-sm-1">Back</a>
 <button type="submit" class="btn btn-dark col-sm-1" name="update">Update</button>
