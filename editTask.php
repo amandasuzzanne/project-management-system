@@ -93,14 +93,15 @@ a{
     <div class="col-3">
         <select name="assigned" class="form-control">
             <option value="">-- Select User --</option>
-            <?php $query = mysqli_query($db, "SELECT * FROM users") ?>
-            <?php while($row = mysqli_fetch_array($query, MYSQLI_ASSOC)): ?>
-                <?php $query_users = mysqli_query($db,"SELECT * FROM project_task WHERE id = ".$task_id); 
-                $data = mysqli_fetch_array($query_users); ?>
-                <option value="<?php echo $row['id'] ?>" <?php $row['id'] == $data['assigned'] ? 'selected' : '' ?>>
+            <?php 
+                $query = mysqli_query($db, "SELECT * FROM users"); 
+                while($row = mysqli_fetch_array($query, MYSQLI_ASSOC)) $users[] = $row;
+            ?>
+            <?php foreach ($users as $row): ?>
+                <option value="<?php echo $row['id'] ?>" <?php if ($row['id'] == $data['assigned']) echo 'selected'; ?>>
                     <?php echo $row['first_name'] . ' ' . $row['last_name'] ?>
                 </option>
-            <?php endwhile; ?>
+            <?php endforeach; ?>
         </select>
     </div>
 </div>
