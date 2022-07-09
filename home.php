@@ -75,7 +75,7 @@ body {
 <h5>Current Projects</h5>
 
 <table class="table table-dark table-hover ">
-<tr> <th>Project Name</th> <th>Implementation Date</th></tr>
+<tr> <th>Project Name</th> <th>Implementation Date</th> <th> </th></tr>
 
 <?php
 	$str = '';
@@ -88,6 +88,9 @@ body {
 	$str .= "<tr>
 	<td>".$row['name']."</td>
 	<td>".$row['implementation_date']."</td>
+	<td>
+	<a href='gantt.php?project_id=".$row['id']."'>View</a>
+	</td>
 	</tr>";
 	}
 	echo $str;
@@ -113,6 +116,9 @@ body {
 	$str .= "<tr>
 	<td>".$row['name']."</td>
 	<td>".$row['implementation_date']."</td>
+	<td>
+	<a href='gantt.php?project_id=".$row['id']."'>View</a>
+	</td>
 	</tr>";
 	}
 	echo $str;
@@ -137,6 +143,9 @@ body {
 	$str .= "<tr>
 	<td>".$row['name']."</td>
 	<td>".$row['implementation_date']."</td>
+	<td>
+	<a href='gantt.php?project_id=".$row['id']."'>View</a>
+	</td>
 	</tr>";
 	}
 	echo $str;
