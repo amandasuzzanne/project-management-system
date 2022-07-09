@@ -3,7 +3,7 @@
     include('configuration.php'); 
 
     // project tasks
-    $query = mysqli_query($db, 'select * from project_task');
+    $query = mysqli_query($db, "SELECT * FROM project_task WHERE project_id=" . $_GET['project_id']);
     while ($row = mysqli_fetch_array($query)) $project_tasks[] = $row;
     // extract values into an array
     $project_tasks_values = array_map(function ($v) {
