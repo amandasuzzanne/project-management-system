@@ -14,6 +14,23 @@
 
 <html>
     <head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <div class="container">
+
+<style>
+body{
+    background-color:#767c82;
+}
+
+.container{
+    margin-top:3%;
+}
+    
+button, a:hover{
+    opacity: 0.8;
+}
+</style>
+
         <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
         <script type="text/javascript">
             // parse php variable
@@ -59,5 +76,6 @@
     </head>
     <body>
         <div id="chart" style="border: 1px solid #ccc"></div>
+        <a href="home.php" class="btn btn-dark col-sm-1">Back</a>
     </body>
 </html>
