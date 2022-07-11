@@ -44,6 +44,10 @@ include('configuration.php');
 <div class="container">
 
 <style>
+h1{
+    text-align: center; 
+}
+   
 body{
     font-family: "Lato", sans-serif;
     background-color:#767c82;
