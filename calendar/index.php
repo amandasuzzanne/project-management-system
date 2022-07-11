@@ -108,12 +108,16 @@
 <div class="container">
 
 <style>
+    
+h1{
+    text-align: center; 
+}
+
 body{
     font-family: "Lato", sans-serif;
     background-color:#767c82;
     margin-left: 300px;
     margin-top: 40px;  
-    text-align: center;  
 }
 
 .container{
@@ -167,9 +171,18 @@ a{
 </head>  
   
 <body>  
- <h2> Event Calendar </h2>  
+<h1>Event Calendar</h1>
  <br/>  
  <div id='calendar'></div>  
+ <div class="sidenav">
+    <a href="..\home.php">Dashboard</a>
+    <a href="..\addProject.php">Add Project</a>
+    <a href="calendar/index.php">Event Calendar</a>
+    <a href="#">Project Reports</a>
+    <a href="#">Project Visualization</a>
+    <a href="#">Account</a>
+    <a href="logout.php">Logout</a>
+</div>
 </body>  
 
 </html> 
