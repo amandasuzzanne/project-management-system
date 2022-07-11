@@ -101,7 +101,7 @@ a{
 <div class="sidenav">
     <a href="home.php">Dashboard</a>
     <a href="addProject.php">Add Project</a>
-    <a href="#">Event Calendar</a>
+    <a href="calendar/index.php">Event Calendar</a>
     <a href="#">Project Reports</a>
     <a href="#">Project Visualization</a>
     <a href="#">Account</a>
