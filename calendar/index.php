@@ -104,24 +104,86 @@
         });
     </script>
     <style>
-        body {
+h1{
+    text-align: center; 
+}
+   
+
+    body {
             margin-top: 40px;
-            text-align: center;
             font-size: 14px;
-            font-family: "Lucida Grande", Helvetica, Arial, Verdana, sans-serif;
-        }
+            
+        
+    font-family: "Lato", sans-serif;
+    background-color:#767c82;
+    margin-left: 300px;
+}
+
+.container{
+    margin-top:3%;
+}
+    
+button, a:hover{
+    opacity: 0.8;
+}
+
+a{
+    display: inline-block;
+    padding: 8px 16px;
+}
+
+.sidenav {
+  height: 100%;
+  width: 300px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.sidenav a {
+  padding: 6px 6px 6px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+        
 
         #calendar {
             width: 650px;
             margin: 0 auto;
+            background-color:white;
         }
     </style>
 </head>
 
 <body>
-    <h2> Event Calendar </h2>
+    <h1> Event Calendar </h1>
     <br />
     <div id='calendar'></div>
+
+<div class="sidenav">
+    <a href="..\home.php">Dashboard</a>
+    <a href="..\addProject.php">Add Project</a>
+    <a href="calendar/index.php">Event Calendar</a>
+    <a href="..\projectReport.php">Project Reports</a>
+    <a href="#">Project Visualization</a>
+    <a href="#">Account</a>
+    <a href="logout.php">Logout</a>
+</div>
 </body>
 
 </html>
