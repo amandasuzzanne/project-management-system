@@ -1,15 +1,9 @@
 <?php  
 // Using database connection file here
-include('configuration.php'); 
+include('../configuration.php'); 
 
-$events = array();
-$query = mysqli_query($db, 'SELECT name, implementation_date FROM project'); 
-while($row = mysqli_fetch_array($query, MYSQLI_ASSOC)) {
-    $events[] = array(
-        'title' => $row['name'], 
-        'start' => $row['implementation_date'],
-        'end' => $row['implementation_date'],
-    );
-}
+$str = 'SELECT name as title, implementation_date as start, implementation_date as end FROM project';
+$query = mysqli_query($db, $str); 
+while($row = mysqli_fetch_array($query, MYSQLI_ASSOC)) $events[] = $row;
 
 echo json_encode($events);
