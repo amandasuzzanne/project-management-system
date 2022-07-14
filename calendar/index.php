@@ -23,7 +23,7 @@
                     right: 'month,agendaWeek,agendaDay'
                 },
 
-                events: "events.php",
+                events: <?php include('events.php') ?>,
 
                 eventRender: function(event, element, view) {
                     if (event.allDay === 'true') {
