@@ -22,15 +22,9 @@
                     center: 'title',
                     right: 'month,agendaWeek,agendaDay'
                 },
-
                 events: <?php include('events.php') ?>,
-
                 eventRender: function(event, element, view) {
-                    if (event.allDay === 'true') {
-                        event.allDay = true;
-                    } else {
-                        event.allDay = false;
-                    }
+                    return true;
                 },
                 selectable: true,
                 selectHelper: true,
@@ -58,7 +52,6 @@
                     }
                     calendar.fullCalendar('unselect');
                 },
-
                 editable: true,
                 eventDrop: function(event, delta) {
                     var start = $.fullCalendar.formatDate(event.start, "Y-MM-DD HH:mm:ss");
@@ -98,9 +91,7 @@
                         }
                     });
                 }
-
             });
-
         });
     </script>
     <style>
