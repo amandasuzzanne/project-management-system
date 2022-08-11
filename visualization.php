@@ -3,9 +3,7 @@
     include('configuration.php'); 
 
     // project tasks
-    //$query = ("SELECT COUNT(status) as total, status FROM project where status = 'completed','current'");
-    //$query = ("SELECT status, COUNT(status) as total FROM project where status = 'current'");
-    $query = ("SELECT status, COUNT(status) as total FROM project order by status");
+    $query = ("SELECT status, id as total FROM project");
 
     $res = mysqli_query($db, $query);
     $status = array();
@@ -19,31 +17,18 @@
 
 <html>
   <head>
-    <style>
-            body{
-                background-color:#767c82;
-            }
 
-            .container{
-                margin-top:3%;
-            }
-                
-            button, a:hover{
-                opacity: 0.8;
-            }
-    </style>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
-    
-        
 
-        // google ganttchart
+    
+        // google piechart
         google.charts.load("current", {packages:["corechart"]});
         google.charts.setOnLoadCallback(drawChart);
 
         function drawChart() {
             var data = google.visualization.arrayToDataTable([
-            ['Task', 'Hours per Day'],
+            ['Task', 'Status'],
                 <?php
                 foreach ($status as $status) {
                     echo $status;
@@ -62,6 +47,23 @@
     </script>
   </head>
   <body>
-    <div id="piechart_3d" style="width: 900px; height: 500px;"></div>
+
+  
+<div class="container">
+<link rel="stylesheet" href="style.css">
+
+<div class="sidenav">
+  <a href="home.php">Dashboard</a>
+  <a href="addProject.php">Add Project</a>
+  <a href="calendar/index.php">Event Calendar</a>
+  <a href="projectReport.php">Project Reports</a>
+  <a href="visualization.php">Project Visualization</a>
+  <a href="account.php">Account</a>
+  <a href="logout.php">Logout</a>
+</div>
+<div class="main">
+  <h1>Project Visualization</h1>
+</div>
+<div id="piechart_3d" style="width: 900px; height: 500px;"></div>
   </body>
 </html>
