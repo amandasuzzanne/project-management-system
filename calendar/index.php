@@ -169,7 +169,7 @@ a{
 <div class="sidenav">
     <a href="..\home.php">Dashboard</a>
     <a href="..\addProject.php">Add Project</a>
-    <a href="calendar/index.php">Event Calendar</a>
+    <a href="index.php">Event Calendar</a>
     <a href="..\projectReport.php">Project Reports</a>
     <a href="..\visualization.php">Project Visualization</a>
     <a href="..\account.php">Account</a>
