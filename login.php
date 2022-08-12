@@ -13,7 +13,7 @@ session_start();
          $mypassword = mysqli_real_escape_string($db,$_POST['password']);
          //encrypt password
          $mypassword = md5($mypassword); 
-         $sql = "SELECT emp_id FROM users WHERE email = '".$myemail."' and password = '".$mypassword."'";
+         $sql = "SELECT id FROM users WHERE email = '".$myemail."' and password = '".$mypassword."'";
          $result = mysqli_query($db,$sql);
          $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
          $count = mysqli_num_rows($result);
