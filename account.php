@@ -36,6 +36,7 @@
 </div>
 
 <div class="container">
+
 <div class="main">
   <h1>Account</h1>
 </div>
@@ -60,6 +61,32 @@
 	echo $str;
 ?>
 </table>
+
+<div class="container">
+<form action="<?php echo $_SERVER['PHP_SELF'];?>" method="post">
+
+<div class="row mb-4">
+   <label for="inputPassword" class="col-sm-2 col-form-label">Current Password:</label>
+   <div class="col-sm-3">
+   <input type="password" class="form-control" name="password">
+    </div>
+</div>
+<div class="row mb-4">
+   <label for="inputPassword" class="col-sm-2 col-form-label">New Password:</label>
+   <div class="col-sm-3">
+   <input type="password" class="form-control" name="password">
+   </div>
+</div>
+<div class="row mb-">
+   <label for="inputPassword" class="col-sm-2 col-form-label">Confirm Password:</label>
+   <div class="col-sm-3">
+   <input type="password" class="form-control" name="password">
+   </div>
+</div>
+<button id="save_btn" type="save" class="btn btn-dark col-sm-1" name="save">Save</button>
+</form>
+</div> 
+
 </div>
 
 </body>
