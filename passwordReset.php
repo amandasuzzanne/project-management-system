@@ -42,8 +42,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
         $query = mysqli_query($db, $sql);
         echo "Your password has been reset successfully!";
     }
-    //Redirects to Reset Password page
-    //header("location: login.php");
+    
 }
 ?>
 
