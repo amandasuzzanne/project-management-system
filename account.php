@@ -62,25 +62,60 @@
 ?>
 </table>
 
+<?php 
+    if(isset($_POST['save'])){
+    $currentPassword=md5($_POST['currentPassword']); 
+    $newPassword=md5($_POST['newPassword']);  
+    $confirmPassword=md5($_POST['confirmPassword']); 
+
+    $sql="SELECT id from users WHERE password='$currentPassword' && email='".$_SESSION['login_user']."'";
+    $res = mysqli_query($db,$sql);
+    $row = mysqli_fetch_assoc($res);
+    $count = mysqli_num_rows($result);
+
+    if (empty ($_POST['currentPassword'])){
+            echo "Fill out all fields";
+        }
+        else if ($count != 1) {
+            echo "Wrong Password";
+        }
+        else if ( empty ($_POST['newPassword'])){
+            echo "Fill out all fields";
+        }
+        else if (empty ($_POST['confirmPassword'])){
+            echo "Fill out all fields";
+        }
+        else if ($newPassword != $confirmPassword) {
+            echo "Passwords don't match.";
+        } else {
+            $sql = "UPDATE users SET password = '$newPassword' WHERE email='".$_SESSION['login_user']."' LIMIT 1";
+            $query = mysqli_query($db, $sql);
+            echo "Your password has been changed successfully!";
+        }
+
+    }
+ 
+?> 
+
 <div class="container">
 <form action="<?php echo $_SERVER['PHP_SELF'];?>" method="post">
 
 <div class="row mb-4">
    <label for="inputPassword" class="col-sm-2 col-form-label">Current Password:</label>
    <div class="col-sm-3">
-   <input type="password" class="form-control" name="password">
+   <input type="password" class="form-control" name="currentPassword">
     </div>
 </div>
 <div class="row mb-4">
    <label for="inputPassword" class="col-sm-2 col-form-label">New Password:</label>
    <div class="col-sm-3">
-   <input type="password" class="form-control" name="password">
+   <input type="password" class="form-control" name="newPassword">
    </div>
 </div>
 <div class="row mb-">
    <label for="inputPassword" class="col-sm-2 col-form-label">Confirm Password:</label>
    <div class="col-sm-3">
-   <input type="password" class="form-control" name="password">
+   <input type="password" class="form-control" name="confirmPassword">
    </div>
 </div>
 <button id="save_btn" type="save" class="btn btn-dark col-sm-1" name="save">Save</button>
