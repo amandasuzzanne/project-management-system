@@ -71,7 +71,7 @@
     $sql="SELECT id from users WHERE password='$currentPassword' && email='".$_SESSION['login_user']."'";
     $res = mysqli_query($db,$sql);
     $row = mysqli_fetch_assoc($res);
-    $count = mysqli_num_rows($result);
+    $count = mysqli_num_rows($res);
 
     if (empty ($_POST['currentPassword'])){
             echo "Fill out all fields";
