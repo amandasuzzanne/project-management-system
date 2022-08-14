@@ -74,19 +74,19 @@
     $count = mysqli_num_rows($res);
 
     if (empty ($_POST['currentPassword'])){
-            echo "Fill out all fields";
+            echo "The Current Password field can't be empty";
         }
         else if ($count != 1) {
-            echo "Wrong Password";
+            echo "The Current Password is incorrect";
         }
         else if ( empty ($_POST['newPassword'])){
-            echo "Fill out all fields";
+            echo "The New Password field can't be empty";
         }
         else if (empty ($_POST['confirmPassword'])){
-            echo "Fill out all fields";
+            echo "The Confirm Password field can't be empty";
         }
         else if ($newPassword != $confirmPassword) {
-            echo "Passwords don't match.";
+            echo "The two passwords don't match.";
         } else {
             $sql = "UPDATE users SET password = '$newPassword' WHERE email='".$_SESSION['login_user']."' LIMIT 1";
             $query = mysqli_query($db, $sql);
