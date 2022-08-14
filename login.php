@@ -70,6 +70,8 @@ session_start();
 
 <button type="submit" class="btn btn-dark col-sm-1" name="login" style="margin-left:50";>Sign in</button>
 
+<div><a href="passwordReset.php">Forgot Password?</a></div>
+
 </form>
 </div>
 
