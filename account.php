@@ -97,7 +97,7 @@
  
 ?> 
 
-<div class="container">
+<h3>Change Password</h3>
 <form action="<?php echo $_SERVER['PHP_SELF'];?>" method="post">
 
 <div class="row mb-4">
