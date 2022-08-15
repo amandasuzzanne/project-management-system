@@ -56,13 +56,13 @@ $status_type_count = json_encode($status_type_count);
 
     function drawChart() {
       let data = google.visualization.arrayToDataTable([
-        ['Task', 'Status'],
+        ['Project', 'Status'],
         // unpack array values using spread operator
         ...statusTypeCount
       ]);
 
       let options = {
-        title: 'Tasks',
+        title: 'Project Status',
         is3D: true,
       };
 
