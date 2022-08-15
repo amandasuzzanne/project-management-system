@@ -26,9 +26,9 @@ if (!empty($_POST['first_name']))
       else 
       $stmt->close();
       $db->close();
-      
-      //header("location:addUser.php"); 
+       
       echo "User added successfully";
+      header("location:addUser.php");
       exit;
    }
 ?>
@@ -67,9 +67,20 @@ if (!empty($_POST['first_name']))
    </div>
 </div>
 <div class="row mb-4">
-   <label for="inputRank" class="col-sm-2 col-form-label">Rank:</label>
+   <label for="emp_rank" class="col-sm-2 col-form-label">Rank:</label>
    <div class="col-sm-3">
-   <input type="emp_rank" id="inputRank" name="emp_rank" class="form-control" >
+   <select name="emp_rank" class="form-control" >
+      <option value="">-- Select Rank --</option>
+      <?php
+        // Rank array
+        $position = array("admin", "project manager", "user");
+        
+        // Iterating through the rank array
+        foreach($position as $rank){
+            echo '<option value="' . strtolower($rank) . '">' . $rank . '</option>';
+        }
+        ?>
+   </select>
    </div>
 </div>
 <div class="row mb-4">
@@ -79,7 +90,7 @@ if (!empty($_POST['first_name']))
    </div>
 </div>
 
-	<button type="submit" class="btn btn-primary col-sm-1" name="submit">Submit</button>
+	<button type="submit" class="btn btn-dark col-sm-1" name="submit">Add</button>
 
 </form>
 </div>
