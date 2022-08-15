@@ -24,6 +24,9 @@ $status_type_count = json_encode($status_type_count);
 <html>
 
 <head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Project Visualization</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 
 <body>
@@ -41,7 +44,12 @@ $status_type_count = json_encode($status_type_count);
     <div class="main">
       <h1>Project Visualization</h1>
     </div>
-    <div id="piechart_3d" style="width: 1065px; height: 500px;"></div>
+    <div id="piechart_3d" style="width: 1045px; height: 500px;"></div>
+
+    <div class="container">
+    <a href="ratingVisualization.php" class="btn btn-dark col-sm-1">Rating</a>
+    </div>
+   
 </body>
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script type="text/javascript">
