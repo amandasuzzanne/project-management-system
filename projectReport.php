@@ -93,9 +93,6 @@ body {
     <td>".$row['comments']."</td>
     <td>".$row['suggestions']."</td>
     <td>".$row['rating']."</td>
-	<td>
-	<a href='gantt.php?project_id=".$row['id']."'>View</a>
-	</td>
 	</tr>";
 	}
 	echo $str;
