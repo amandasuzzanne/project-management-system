@@ -1,23 +1,23 @@
 <?php
 include('configuration.php');
 
-// query count category groups 
-$query1 = mysqli_query($db, "SELECT COUNT(*) as current FROM project GROUP BY status HAVING status = 'current'");
-$query2 = mysqli_query($db, "SELECT COUNT(*) as completed FROM project GROUP BY status HAVING status = 'completed'");
-$query3 = mysqli_query($db, "SELECT COUNT(*) as suspended FROM project GROUP BY status HAVING status = 'suspended'");
+// fetch project statuses
+$query = mysqli_query($db, "SELECT status FROM project");
+while($row = mysqli_fetch_array($query, MYSQLI_ASSOC)) $projects [] = $row;
 
-// fetch result arrays (category, count)
-$current_count = mysqli_fetch_assoc($query1);
-$completed_count = mysqli_fetch_assoc($query2);
-$suspended_count = mysqli_fetch_assoc($query3);
+// count initializer for each status type
+$init_status_count = [['current', 0], ['completed', 0], ['suspended', 0]];
 
-// combine fetched categories into a collection
-$status_count = [];
-foreach ([$current_count, $completed_count, $suspended_count] as $count) {
-  foreach ($count as $key => $value) {
-    $status_count[] = [$key, $value/100];
-  }
-}
+// dynamically count and update status type
+$status_type_count = array_reduce($projects, function($init, $row) {
+  return array_map(function ($v) use($row) {
+    if ($row['status'] == $v[0]) $v[1] += 1; 
+    return $v;
+  }, $init);
+}, $init_status_count);
+
+// parse status_count array to json
+$status_type_count = json_encode($status_type_count);
 
 ?>
 
@@ -51,14 +51,14 @@ foreach ([$current_count, $completed_count, $suspended_count] as $count) {
     });
     google.charts.setOnLoadCallback(drawChart);
 
-    // parse php array into javascript array
-    let statusCount = <?php echo json_encode($status_count) ?>;
+    // parse php variable to javascript
+    let statusTypeCount = <?php echo $status_type_count ?>;
 
     function drawChart() {
       let data = google.visualization.arrayToDataTable([
         ['Task', 'Status'],
-        // unpack values using spread operator
-        ...statusCount
+        // unpack array values using spread operator
+        ...statusTypeCount
       ]);
 
       let options = {
