@@ -59,7 +59,7 @@
 <h5>Completed Projects</h5>
 
 <table class="table table-dark table-hover ">
-<tr> <th>Project Name</th> <th>Implementation Date</th></tr>
+<tr> <th>Project Name</th> <th>Implementation Date</th> <th> </th></tr>
 
 <?php
 	$str = '';
@@ -86,7 +86,7 @@
 <h5>Suspended Projects</h5>
 
 <table class="table table-dark table-hover ">
-<tr> <th>Project Name</th> <th>Implementation Date</th></tr>
+<tr> <th>Project Name</th> <th>Implementation Date</th> <th> </th></tr>
 
 <?php
 	$str = '';
