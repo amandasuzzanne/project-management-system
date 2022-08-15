@@ -41,7 +41,7 @@ $status_type_count = json_encode($status_type_count);
     <div class="main">
       <h1>Project Visualization</h1>
     </div>
-    <div id="piechart_3d" style="width: 900px; height: 500px;"></div>
+    <div id="piechart_3d" style="width: 1065px; height: 500px;"></div>
 </body>
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script type="text/javascript">
