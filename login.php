@@ -8,16 +8,11 @@ session_start();
    $error="";
       if($_SERVER["REQUEST_METHOD"] == "POST") 
       {
-         //email and password sent from form using POST method
-         $myemail = mysqli_real_escape_string($db,$_POST['email']);
-         $mypassword = mysqli_real_escape_string($db,$_POST['password']);
-         //encrypt password
-         $mypassword = md5($mypassword); 
-         $sql = "SELECT id FROM users WHERE email = '".$myemail."' and password = '".$mypassword."'";
-         $result = mysqli_query($db,$sql);
-         $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
-         $count = mysqli_num_rows($result);
-         
+   // extract form request inputs and sanitize
+   $email = mysqli_real_escape_string($db,$_POST['email']);
+   $password = mysqli_real_escape_string($db,$_POST['password']);
+   $rank = mysqli_real_escape_string($db,$_POST['emp_rank']);
+
    // encrypted password hash
    $hash = md5($password); 
 
