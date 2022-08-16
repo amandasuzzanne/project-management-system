@@ -18,14 +18,24 @@ session_start();
          $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
          $count = mysqli_num_rows($result);
          
-         if($count == 1) 
-         { //login successful
-            $_SESSION['login_user'] = $myemail;
-            header("location: home.php");
-         }else 
-         {
-            $error = "Your Email or Password is invalid";
-         }
+   // encrypted password hash
+   $hash = md5($password); 
+
+   // query database
+   $sql = "SELECT * FROM users WHERE email = '". $email ."' AND password = '". $hash ."' AND emp_rank = '". $rank . "'";
+   $user = mysqli_fetch_array(mysqli_query($db,$sql), MYSQLI_ASSOC);
+
+   if (!$user) $error = "Your Login credentials are incorrect!";
+   else {
+      // set session variable
+      $_SESSION['login_user'] = $user['email'];
+      $_SESSION['emp_rank'] = $user['emp_rank'];
+
+      // conditional page redirects based on rank 
+      if ($user['emp_rank'] == 'admin') header("location: addUser.php");
+      elseif ($user['emp_rank'] == 'project manager') header("location: home.php");
+      else  header("location: home.php");
+   }
 }
 ?>
 
