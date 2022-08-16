@@ -14,7 +14,7 @@ if (!empty($_POST['first_name']))
       $stmt = $db->prepare("INSERT INTO users (first_name, last_name, email, emp_rank, password) VALUES (?, ?, ?, ?, ?)");
       $stmt->bind_param("sssss", $fname, $lname, $email, $erank, $pass);
 
-//Set parameters and execute
+      //Set parameters and execute
       $fname = $first_name;
       $lname = $last_name;
       $email = $email;
@@ -38,8 +38,7 @@ if (!empty($_POST['first_name']))
 <head>
 <title>Add User</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-<div class="container">
-<h3>Add a New User</h3>
+
 <style>
    body{background-color:#767c82;}
    .container{margin-top:3%;}
@@ -54,25 +53,25 @@ if (!empty($_POST['first_name']))
 <form action="<?php echo $_SERVER['PHP_SELF'];?>" method="post">
       
 <div class="row mb-4">
-   <label for="inputFirstName" class="col-sm-2 col-form-label">First Name:</label>
+   <label for="inputFirstName" class="col-sm-3 col-form-label">First Name:</label>
    <div class="col-sm-3">
    <input type="first_name" id="inputFirstName" name="first_name" class="form-control">
    </div>
 </div>
 <div class="row mb-4">
-   <label for="inputLastName" class="col-sm-2 col-form-label">Last Name:</label>
+   <label for="inputLastName" class="col-sm-3 col-form-label">Last Name:</label>
    <div class="col-sm-3">
    <input type="last_name" id="inputLastName" name="last_name" class="form-control" >
    </div>
 </div>
 <div class="row mb-4">
-   <label for="inputEmail" class="col-sm-2 col-form-label">Email:</label>
+   <label for="inputEmail" class="col-sm-3 col-form-label">Email:</label>
    <div class="col-sm-3">
    <input type="email" id="inputEmail" name="email" class="form-control" >
    </div>
 </div>
 <div class="row mb-4">
-   <label for="emp_rank" class="col-sm-2 col-form-label">Rank:</label>
+   <label for="emp_rank" class="col-sm-3 col-form-label">Rank:</label>
    <div class="col-sm-3">
    <select name="emp_rank" class="form-control" >
       <option value="">-- Select Rank --</option>
@@ -89,7 +88,7 @@ if (!empty($_POST['first_name']))
    </div>
 </div>
 <div class="row mb-4">
-   <label for="inputPassword" class="col-sm-2 col-form-label">Password:</label>
+   <label for="inputPassword" class="col-sm-3 col-form-label">Password:</label>
    <div class="col-sm-3">
    <input type="password" id="inputPassword" name="password" class="form-control" >
    </div>
