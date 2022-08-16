@@ -46,6 +46,11 @@ if (!empty($_POST['first_name']))
 </style>
 </head>
 <body>
+<div class="container">
+<div class="main">
+  <h1>Add New User</h1>
+</div>
+
 <form action="<?php echo $_SERVER['PHP_SELF'];?>" method="post">
       
 <div class="row mb-4">
