@@ -91,6 +91,7 @@ if (!empty($_POST['first_name']))
 </div>
 
 	<button type="submit" class="btn btn-dark col-sm-1" name="submit">Add</button>
+   <a href="home.php" class="btn btn-dark col-sm-2">Home</a>
 
 </form>
 </div>
