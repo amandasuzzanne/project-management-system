@@ -66,6 +66,17 @@ session_start();
    <div class=""> 
       <?= $error?: $error; ?>
    </div>
+            <div class="row mb-4">
+               <label for="emp_rank" class="col-sm-1 col-form-label">Rank:</label>
+               <div class="col-sm-3">
+                  <select name="emp_rank" class="form-control" required>
+                     <option value="">-- Select Rank --</option>
+                     <?php foreach(["admin", "project manager", "user"] as $rank): ?>
+                        <option value="<?= $rank ?>">
+                           <?= $rank ?>
+                        </option>
+                     <?php endforeach; ?>  
+                  </select>
 </div>
 
 <button type="submit" class="btn btn-dark col-sm-1" name="login" style="margin-left:50";>Sign in</button>
