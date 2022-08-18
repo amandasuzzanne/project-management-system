@@ -98,6 +98,34 @@ if (!empty($_POST['first_name']))
    <a href="home.php" class="btn btn-dark col-sm-2">Home</a>
 
 </form>
+
+<div class="container">
+<h5>Users</h5>
+
+<table class="table table-dark table-hover ">
+<tr> <th>Name</th> <th>Email</th> <th>Rank</th><th> </th></tr>
+
+<?php
+	$str = '';
+	$sql = "SELECT id, CONCAT(first_name, ' ',last_name) as name,  email, emp_rank from users ORDER BY name";
+	$result = mysqli_query($db,$sql);
+	$count = mysqli_num_rows($result);
+
+	while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC))
+	{
+	$str .= "<tr>
+	<td>".$row['name']."</td>
+	<td>".$row['email']."</td>
+   <td>".$row['emp_rank']."</td>
+   <td>
+	<a href='deleteUser.php?id=".$row['id']."'>Delete</a>
+	</td>
+	</tr>";
+	}
+	echo $str;
+?>
+</table>
+</div>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
