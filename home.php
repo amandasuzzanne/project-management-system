@@ -22,45 +22,15 @@
     <a href="account.php">Account</a>
     <a href="logout.php">Logout</a>
 </div>
-<div class="container">
+
 <div class="main">
   <h1>Dashboard</h1>
 </div>
 
-
-<h5>Current Projects</h5>
-
-<table class="table table-dark table-hover ">
-<tr> <th>Project Name</th> <th>Implementation Date</th> <th> </th></tr>
-
-<?php
-	$str = '';
-	$sql = "SELECT * FROM project WHERE status='current' ORDER BY implementation_date";
-	$result = mysqli_query($db,$sql);
-	$count = mysqli_num_rows($result);
-
-	while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC))
-	{
-	$str .= "<tr>
-	<td>".$row['name']."</td>
-	<td>".$row['implementation_date']."</td>
-	<td>
-	<a href='gantt.php?project_id=".$row['id']."'>View</a>
-	</td>
-	</tr>";
-	}
-	echo $str;
-?>
-
-</table>
-</div>
-  
 <div class="container">
 <h5>Completed Projects</h5>
-
 <table class="table table-dark table-hover ">
-<tr> <th>Project Name</th> <th>Implementation Date</th> <th> </th></tr>
-
+<tr> <th>Project Name</th> <th>Implementation Date</th> <th>Gantt</th> <th>Report</th></tr>
 <?php
 	$str = '';
 	$sql = "SELECT * FROM project WHERE status='completed' ORDER BY implementation_date";
@@ -72,22 +42,44 @@
 	$str .= "<tr>
 	<td>".$row['name']."</td>
 	<td>".$row['implementation_date']."</td>
-	<td>
-	<a href='gantt.php?project_id=".$row['id']."'>View</a>
-	</td>
+	<td><a href='gantt.php?project_id=".$row['id']."'>View</a></td>
+	<td><a href='gantt.php?project_id=".$row['id']."'>Add Report</a></td>
 	</tr>";
 	}
 	echo $str;
 ?>
 </table>
 </div>
+  
+<div class="container">
+<h5>Current Projects</h5>
+<table class="table table-dark table-hover ">
+<tr> <th>Project Name</th> <th>Implementation Date</th> <th>Gantt</th> <th>Status</th></tr>
+<?php
+	$str = '';
+	$sql = "SELECT * FROM project WHERE status='current' ORDER BY implementation_date";
+	$result = mysqli_query($db,$sql);
+	$count = mysqli_num_rows($result);
+
+	while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC))
+	{
+	$str .= "<tr>
+	<td>".$row['name']."</td>
+	<td>".$row['implementation_date']."</td>
+	<td><a href='gantt.php?project_id=".$row['id']."'>View</a></td>
+	<td><a href='editStatus.php?project_id=".$row['id']."'>Edit Status</a></td>
+	</tr>";
+	}
+	echo $str;
+?>
+
+</table>
+</div>
 
 <div class="container">
 <h5>Suspended Projects</h5>
-
 <table class="table table-dark table-hover ">
-<tr> <th>Project Name</th> <th>Implementation Date</th> <th> </th></tr>
-
+<tr> <th>Project Name</th> <th>Implementation Date</th> <th>Gantt</th> <th>Status</th></tr>
 <?php
 	$str = '';
 	$sql = "SELECT * FROM project WHERE status='suspended' ORDER BY implementation_date";
@@ -99,9 +91,8 @@
 	$str .= "<tr>
 	<td>".$row['name']."</td>
 	<td>".$row['implementation_date']."</td>
-	<td>
-	<a href='gantt.php?project_id=".$row['id']."'>View</a>
-	</td>
+	<td><a href='gantt.php?project_id=".$row['id']."'>View</a></td>
+	<td><a href='editStatus.php?project_id=".$row['id']."'>Edit Status</a></td>
 	</tr>";
 	}
 	echo $str;
@@ -111,4 +102,3 @@
 
 </body>
 </html> 
-
