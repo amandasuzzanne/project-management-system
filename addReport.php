@@ -1,4 +1,5 @@
 <?php
+// database connection file
 include('configuration.php'); 
 
 // get id through query string
