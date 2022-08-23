@@ -86,9 +86,15 @@
                 if (taskValues.length) chart.draw(data, options);
             }
         </script>
+        <title>Gantt Chart</title>
     </head>
     <body>
-        <div id="chart" style="border: 1px solid #ccc"></div>
-        <a href="home.php" class="btn btn-dark col-sm-1">Back</a>
+        <div class="container">
+            <div id="chart" style="border: 1px solid #ccc"></div>
+        </div>
+
+        <?php
+        include('taskStatus.php'); 
+        ?>
     </body>
 </html>
