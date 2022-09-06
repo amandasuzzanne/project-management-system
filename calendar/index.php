@@ -169,6 +169,7 @@ a{
 <div class="sidenav">
     <a href="..\home.php">Home</a>
     <a href="..\addProject.php">Add Project</a>
+    <a href="..\manageProjects.php">Manage Projects</a>
     <a href="index.php">Event Calendar</a>
     <a href="..\projectReport.php">Project Reports</a>
     <a href="..\visualization.php">Project Visualization</a>
