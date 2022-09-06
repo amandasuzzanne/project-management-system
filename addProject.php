@@ -50,7 +50,7 @@ include('configuration.php');
 <h1>Add Project</h1>
 
 <div class="sidenav">
-    <a href="home.php">Dashboard</a>
+    <a href="home.php">Home</a>
     <a href="addProject.php">Add Project</a>
     <a href="calendar/index.php">Event Calendar</a>
     <a href="projectReport.php">Project Reports</a>

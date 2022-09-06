@@ -33,7 +33,7 @@ $status_type_count = json_encode($status_type_count);
   <div class="container">
     <link rel="stylesheet" href="style.css">
     <div class="sidenav">
-      <a href="home.php">Dashboard</a>
+      <a href="home.php">Home</a>
       <a href="addProject.php">Add Project</a>
       <a href="calendar/index.php">Event Calendar</a>
       <a href="projectReport.php">Project Reports</a>
