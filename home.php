@@ -23,8 +23,8 @@
     <a href="logout.php">Logout</a>
 </div>
 
-<div class="main">
-  <h1>Dashboard</h1>
+<div class="container">
+  <h1>Home</h1>
 </div>
 
 <div class="container">
