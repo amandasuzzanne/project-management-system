@@ -99,7 +99,7 @@ a{
 
 </div>
 
-<a href="addProject.php" class="btn btn-dark col-sm-1">Back</a>
+<a href="manageProjects.php" class="btn btn-dark col-sm-1">Back</a>
 <button type="submit" class="btn btn-dark col-sm-1" name="update">Update</button>
 </form>
 
