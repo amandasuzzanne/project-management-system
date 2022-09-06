@@ -34,7 +34,6 @@ include('configuration.php');
     }
 ?>
 
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -84,44 +83,5 @@ include('configuration.php');
 </form>
 </div>
 
-<div class="container">
-
-<h5>Projects</h5>
-
-<table class="table table-dark table-striped table-hover table-bordered">
-<tr> <th>Project Name</th> <th>Institution</th> <th>Implementation Date</th> <th>Status</th><th></th></tr>
-
-<?php
-	$str = '';
-	$sql = "SELECT * FROM project ORDER BY implementation_date";
-	$result = mysqli_query($db,$sql);
-	$count = mysqli_num_rows($result);
-
-	while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC))
-	{
-	$str .= "<tr>
-	<td>".$row['name']."</td>
-	<td>".$row['institution']."</td>
-	<td>".$row['implementation_date']."</td>
-    <td>".$row['status']."</td>
-	<td>
-    <a href='editProject.php?project_id=".$row['id']."'>Edit</a>
-    <a href='addTask.php?project_id=".$row['id']."'>Add tasks</a>
-	<a href='deleteProject.php?project_id=".$row['id']."'>Delete</a>
-	</td></tr>";
-	}
-	echo $str;
-?>
-
-</table>
-</div>
-
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
-
-
-
 </body>
-</html>
-    
-    
+</html> 
