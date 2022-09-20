@@ -45,11 +45,14 @@ if (!empty($_POST['first_name']))
 </style>
 </head>
 <body>
+
 <div class="container">
 <div class="main">
   <h1>Add New User</h1>
 </div>
-
+<div>
+<a href="home.php" class="btn btn-dark col-sm-2" style="margin-left: 920px;">Home</a>
+</div>
 <form action="<?php echo $_SERVER['PHP_SELF'];?>" method="post">
       
 <div class="row mb-4">
@@ -76,14 +79,14 @@ if (!empty($_POST['first_name']))
    <select name="emp_rank" class="form-control" >
       <option value="">-- Select Rank --</option>
       <?php
-        // Rank array
-        $position = array("admin", "project manager", "user");
-        
-        // Iterating through the rank array
-        foreach($position as $rank){
-            echo '<option value="' . strtolower($rank) . '">' . $rank . '</option>';
-        }
-        ?>
+         // Rank array
+         $position = array("admin", "project manager", "user");
+         
+         // Iterating through the rank array
+         foreach($position as $rank){
+               echo '<option value="' . strtolower($rank) . '">' . $rank . '</option>';
+         }
+         ?>
    </select>
    </div>
 </div>
@@ -95,7 +98,6 @@ if (!empty($_POST['first_name']))
 </div>
 
 	<button type="submit" class="btn btn-dark col-sm-1" name="submit">Add</button>
-   <a href="home.php" class="btn btn-dark col-sm-2">Home</a>
 
 </form>
 
