@@ -34,13 +34,13 @@ $status_type_count = json_encode($status_type_count);
     <link rel="stylesheet" href="style.css">
     <div class="sidenav">
       <a href="home.php">Home</a>
-      <a href="addProject.php">Add Project</a>
-      <a href="manageProjects.php">Manage Projects</a>
-      <a href="calendar/index.php">Event Calendar</a>
-      <a href="projectReport.php">Project Reports</a>
-      <a href="visualization.php">Project Visualization</a>
-      <a href="account.php">Account</a>
-      <a href="logout.php">Logout</a>
+      <a href="addProject.php" style="margin-top: 15px;">Add Project</a>
+      <a href="manageProjects.php" style="margin-top: 15px;">Manage Projects</a>
+      <a href="calendar/index.php" style="margin-top: 15px;">Event Calendar</a>
+      <a href="projectReport.php" style="margin-top: 15px;">Project Reports</a>
+      <a href="visualization.php" style="color: white; margin-top: 15px;">Project Visualization</a>
+      <a href="account.php" style="margin-top: 15px;">Account</a>
+      <a href="logout.php" style="margin-top: 150px;">Logout</a>
     </div>
     <div class="main">
       <h1>Project Visualization</h1>
