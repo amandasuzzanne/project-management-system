@@ -26,7 +26,7 @@ if(isset($_POST['update']))
     else {
         // close connection and redirect
         $db->close(); 
-        header("location:addProject.php"); 
+        header("location:manageProjects.php"); 
         exit;
     } 
 }
