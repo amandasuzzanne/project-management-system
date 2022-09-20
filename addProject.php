@@ -79,7 +79,7 @@ include('configuration.php');
     <input type="date" id="inputImplementationDate" placeholder="Implementation Date" name="implementation_date" class="form-control" >
     </div>
 </div>
-    <button id="save_btn" type="save" class="btn btn-dark col-sm-1" name="save">Save</button>
+    <button id="save_btn" type="save" class="btn btn-primary col-sm-1" name="save">Save</button>
 </form>
 </div>
 

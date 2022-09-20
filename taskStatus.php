@@ -68,7 +68,7 @@ a{
 </div>
 
 <div class="container">
-            <a href="home.php" class="btn btn-dark col-sm-1">Back</a>
+            <a href="home.php" class="btn btn-secondary col-sm-1">Back</a>
         </div>
 </body>
 

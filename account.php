@@ -119,7 +119,7 @@
    <input type="password" class="form-control" name="confirmPassword">
    </div>
 </div>
-<button id="save_btn" type="save" class="btn btn-dark col-sm-1" style="margin-top: 20px; margin-left: 330px;" name="save">Save</button>
+<button id="save_btn" type="save" class="btn btn-primary col-sm-1" style="margin-top: 20px; margin-left: 330px;" name="save">Save</button>
 </form>
 </div> 
 
