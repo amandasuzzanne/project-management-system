@@ -84,7 +84,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
                <p class="text-danger"> <?= $error?: $error; ?> </p>
             </div>
             <button type="submit" class="btn btn-dark col-sm-1" name="login" style="margin-left:50";>Sign in</button>
-            <div><a href="passwordReset.php">Forgot Password?</a></div>
+            <a href="loginAdmin.php" class="btn btn-dark col-sm-1.2" style="margin-left:142px">Admin Login</a>            
+            <div><a href="passwordReset.php" style="color: black; margin-left:110px;">Forgot Password?</a></div>
          </form>
       </div>
 
