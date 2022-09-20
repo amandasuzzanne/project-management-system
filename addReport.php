@@ -74,7 +74,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
                 </div>
                 <div class="form-group row">
                     <div class="col-sm-3">
-                        <label for="rating" class="col-sm-2 col-form-label">Project Rating:</label>
+                        <label for="rating" class="col-sm-5 col-form-label">Project Rating:</label>
                         <select name="rating" class="form-control" required>
                             <option value="">-- Select Rating --</option>
                                 <?php
