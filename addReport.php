@@ -85,8 +85,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
                         </select>
                     </div>
                 </div>
-                <a href="home.php" class="btn btn-dark col-sm-1">Back</a>
-                <button type="submit" class="btn btn-dark col-sm-1">Add</button>
+                <a href="home.php" class="btn btn-dark col-sm-1" style="margin-top: 24px;">Back</a>
+                <button type="submit" class="btn btn-dark col-sm-1" style="margin-top: 24px; margin-left: 70px;">Add</button>
             </form>
         </div>
     </body>
