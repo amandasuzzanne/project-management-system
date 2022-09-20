@@ -105,7 +105,7 @@ a{
         </select>
     </div>
 </div>
-<a href="<?php echo $url ?>" class="btn btn-secondary col-sm-1">Back</a>
+<a href="<?php echo 'addTask.php?project_id=' . $_GET['project_id'] . '&task_id=' . $row['id']; ?>" class="btn btn-secondary col-sm-1">Back</a>
 <button type="submit" class="btn btn-primary col-sm-1" style="margin-left: 260px;" name="update">Update</button>
 </form>
 
