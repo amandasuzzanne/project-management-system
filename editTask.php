@@ -105,8 +105,8 @@ a{
         </select>
     </div>
 </div>
-<a href="<?php echo $url ?>" class="btn btn-dark col-sm-1">Back</a>
-<button type="submit" class="btn btn-dark col-sm-1" style="margin-left: 260px;" name="update">Update</button>
+<a href="<?php echo $url ?>" class="btn btn-secondary col-sm-1">Back</a>
+<button type="submit" class="btn btn-primary col-sm-1" style="margin-left: 260px;" name="update">Update</button>
 </form>
 
 </div>
