@@ -32,7 +32,7 @@ include('configuration.php');
 <h5>Projects</h5>
 
 <table class="table table-dark table-striped table-hover table-bordered">
-<tr> <th>Project Name</th> <th>Institution</th> <th>Implementation Date</th> <th>Status</th><th></th></tr>
+<tr> <th>Project Name</th> <th>Institution</th> <th>Implementation Date</th> <th>Status</th><th></th><th></th><th></th></tr>
 
 <?php
 	$str = '';
@@ -47,11 +47,10 @@ include('configuration.php');
 	<td>".$row['institution']."</td>
 	<td>".$row['implementation_date']."</td>
     <td>".$row['status']."</td>
-	<td>
-    <a href='editProject.php?project_id=".$row['id']."'>Edit Project</a>
-    <a href='addTask.php?project_id=".$row['id']."'>Add tasks</a>
-	<a href='deleteProject.php?project_id=".$row['id']."'>Delete</a>
-	</td></tr>";
+	<td> <a href='editProject.php?project_id=".$row['id']."'>Edit Project</a> </td>
+	<td> <a href='addTask.php?project_id=".$row['id']."'>Add tasks</a> </td>
+	<td> <a href='deleteProject.php?project_id=".$row['id']."'>Delete</a> </td>
+	</tr>";
 	}
 	echo $str;
 ?>
