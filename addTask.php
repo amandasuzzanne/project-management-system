@@ -91,7 +91,7 @@ a{
         </select>
     </div>
 </div>
-    <a href="addProject.php" class="btn btn-secondary col-sm-1">Back</a>
+    <a href="manageProjects.php" class="btn btn-secondary col-sm-1">Back</a>
     <button id="save_btn" type="save" class="btn btn-primary col-sm-1" style="margin-left: 260px;" name="save">Save</button>
 </form>
 </div>

@@ -12,8 +12,8 @@ if($deleted)
 {
   //close connection
   $db->close(); 
-  //redirects to projects page
-  header("location:addProject.php"); 
+  //redirects to manage projects page
+  header("location:manageProjects.php"); 
   echo "Deletion done successfully";
   exit;
 } 
