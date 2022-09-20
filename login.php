@@ -11,13 +11,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
    // extract form request inputs and sanitize
    $email = mysqli_real_escape_string($db,$_POST['email']);
    $password = mysqli_real_escape_string($db,$_POST['password']);
-   $rank = mysqli_real_escape_string($db,$_POST['emp_rank']);
 
    // encrypted password hash
    $hash = md5($password); 
 
    // query database
-   $sql = "SELECT * FROM users WHERE email = '". $email ."' AND password = '". $hash ."' AND emp_rank = '". $rank . "'";
+   $sql = "SELECT * FROM users WHERE email = '". $email ."' AND password = '". $hash ."'";
    $user = mysqli_fetch_array(mysqli_query($db,$sql), MYSQLI_ASSOC);
 
    if (!$user) $error = "Your Login credentials are incorrect!";
@@ -27,8 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
       $_SESSION['emp_rank'] = $user['emp_rank'];
 
       // conditional page redirects based on rank 
-      if ($user['emp_rank'] == 'admin') header("location: addUser.php");
-      elseif ($user['emp_rank'] == 'project manager') header("location: home.php");
+      if ($user['emp_rank'] == 'project manager') header("location: home.php");
       else  header("location: home.php");
    }
 }
@@ -67,19 +65,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
                <label for="inputPassword" class="col-sm-1 col-form-label">Password:</label>
                <div class="col-sm-3">
                   <input type="password" class="form-control" name="password" required>
-               </div>
-            </div>
-            <div class="row mb-4">
-               <label for="emp_rank" class="col-sm-1 col-form-label">Rank:</label>
-               <div class="col-sm-3">
-                  <select name="emp_rank" class="form-control" required>
-                     <option value="">-- Select Rank --</option>
-                     <?php foreach(["admin", "project manager", "user"] as $rank): ?>
-                        <option value="<?= $rank ?>">
-                           <?= $rank ?>
-                        </option>
-                     <?php endforeach; ?>  
-                  </select>
                </div>
                <p class="text-danger"> <?= $error?: $error; ?> </p>
             </div>
