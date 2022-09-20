@@ -48,7 +48,7 @@ include('configuration.php');
 	<td>".$row['implementation_date']."</td>
     <td>".$row['status']."</td>
 	<td>
-    <a href='editProject.php?project_id=".$row['id']."'>Edit</a>
+    <a href='editProject.php?project_id=".$row['id']."'>Edit Project</a>
     <a href='addTask.php?project_id=".$row['id']."'>Add tasks</a>
 	<a href='deleteProject.php?project_id=".$row['id']."'>Delete</a>
 	</td></tr>";
