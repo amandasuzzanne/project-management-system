@@ -92,7 +92,7 @@ a{
     </div>
 </div>
     <a href="addProject.php" class="btn btn-dark col-sm-1">Back</a>
-    <button id="save_btn" type="save" class="btn btn-dark col-sm-1" name="save">Save</button>
+    <button id="save_btn" type="save" class="btn btn-dark col-sm-1" style="margin-left: 260px;" name="save">Save</button>
 </form>
 </div>
 
