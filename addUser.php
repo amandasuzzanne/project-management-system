@@ -120,7 +120,7 @@ if (!empty($_POST['first_name']))
 	<td>".$row['email']."</td>
    <td>".$row['emp_rank']."</td>
    <td>
-	<a href='deleteUser.php?id=".$row['id']."'>Delete</a>
+	<a href='deleteUser.php?id=".$row['id']."' class='btn btn-light btn-sm'>Delete</a>
 	</td>
 	</tr>";
 	}

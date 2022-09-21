@@ -47,9 +47,9 @@ include('configuration.php');
 	<td>".$row['institution']."</td>
 	<td>".$row['implementation_date']."</td>
     <td>".$row['status']."</td>
-	<td> <a href='editProject.php?project_id=".$row['id']."'>Edit Project</a> </td>
-	<td> <a href='addTask.php?project_id=".$row['id']."'>Add tasks</a> </td>
-	<td> <a href='deleteProject.php?project_id=".$row['id']."'>Delete</a> </td>
+	<td> <a href='editProject.php?project_id=".$row['id']."' class='btn btn-light btn-sm'>Edit Project</a> </td>
+	<td> <a href='addTask.php?project_id=".$row['id']."' class='btn btn-light btn-sm'>Add tasks</a> </td>
+	<td> <a href='deleteProject.php?project_id=".$row['id']."' class='btn btn-light btn-sm'>Delete</a> </td>
 	</tr>";
 	}
 	echo $str;

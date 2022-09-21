@@ -130,9 +130,9 @@ a{
                         ?>
                     </td>
                     <td>
-                        <a href="<?php echo 'editTask.php?project_id=' . $_GET['project_id'] . '&task_id=' . $row['id']; ?>">Edit Task</a>
+                        <a href="<?php echo 'editTask.php?project_id=' . $_GET['project_id'] . '&task_id=' . $row['id']; ?>" class='btn btn-light btn-sm'>Edit Task</a>
                     </td>
-                    <td><a href="deleteTask.php?task_id=<?php echo $row['id']; ?>">Delete Task</a></td>
+                    <td><a href="deleteTask.php?task_id=<?php echo $row['id']; ?>" class='btn btn-light btn-sm'>Delete Task</a></td>
                 </tr>
             <?php endwhile; ?>
         </tbody>

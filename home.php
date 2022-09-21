@@ -43,8 +43,8 @@
 	$str .= "<tr>
 	<td>".$row['name']."</td>
 	<td>".$row['implementation_date']."</td>
-	<td><a href='gantt.php?project_id=".$row['id']."'>View</a></td>
-	<td><a href='addReport.php?project_id=".$row['id']."'>Add Report</a></td>
+	<td><a href='gantt.php?project_id=".$row['id']."' class='btn btn-light btn-sm'>View</a></td>
+	<td><a href='addReport.php?project_id=".$row['id']."' class='btn btn-light btn-sm'>Add Report</a></td>
 	</tr>";
 	}
 	echo $str;
@@ -67,8 +67,8 @@
 	$str .= "<tr>
 	<td>".$row['name']."</td>
 	<td>".$row['implementation_date']."</td>
-	<td><a href='gantt.php?project_id=".$row['id']."'>View</a></td>
-	<td><a href='editStatus.php?project_id=".$row['id']."'>Edit Status</a></td>
+	<td><a href='gantt.php?project_id=".$row['id']."' class='btn btn-light btn-sm'>View</a></td>
+	<td><a href='editStatus.php?project_id=".$row['id' ]."' class='btn btn-light btn-sm'>Edit Status</a></td>
 	</tr>";
 	}
 	echo $str;
@@ -92,8 +92,8 @@
 	$str .= "<tr>
 	<td>".$row['name']."</td>
 	<td>".$row['implementation_date']."</td>
-	<td><a href='gantt.php?project_id=".$row['id']."'>View</a></td>
-	<td><a href='editStatus.php?project_id=".$row['id']."'>Edit Status</a></td>
+	<td><a href='gantt.php?project_id=".$row['id']."' class='btn btn-light btn-sm'>View</a></td>
+	<td><a href='editStatus.php?project_id=".$row['id']."' class='btn btn-light btn-sm'>Edit Status</a></td>
 	</tr>";
 	}
 	echo $str;
