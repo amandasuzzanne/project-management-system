@@ -106,7 +106,7 @@ h1{
             
         
     font-family: "Lato", sans-serif;
-    background-color:#767c82;
+    background-color:#F0EFE7;
     margin-left: 300px;
 }
 

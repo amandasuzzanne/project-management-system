@@ -42,7 +42,7 @@ if(isset($_POST['update'])) {
 
 <style>
 body{
-    background-color:#767c82;
+    background-color:#F0EFE7;
 }
 
 .container{
