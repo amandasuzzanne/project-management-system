@@ -57,7 +57,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 <h3>Reset Password</h3>
 
 <style>
-    body{background-color:#F0EFE7;}
+    body{background-color:#767c82;}
     .container{margin-top:3%;}
     button:hover {opacity: 0.8;}
    
