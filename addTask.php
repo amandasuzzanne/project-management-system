@@ -101,7 +101,7 @@ a{
 
 <div class="container">
     <h3>Tasks</h3>
-    <table class="table table-dark table-striped table-hover">
+    <table class="table table-dark table-hover">
         <thead>
             <tr> 
                 <th>Task</th> 

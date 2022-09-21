@@ -31,7 +31,7 @@ include('configuration.php');
 
 <h5>Projects</h5>
 
-<table class="table table-dark table-striped table-hover table-bordered">
+<table class="table table-dark table-hover">
 <tr> <th>Project Name</th> <th>Institution</th> <th>Implementation Date</th> <th>Status</th><th></th><th></th><th></th></tr>
 
 <?php
