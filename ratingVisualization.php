@@ -33,7 +33,7 @@ $rating_type_count = json_encode($rating_type_count);
   <div class="container">
     <link rel="stylesheet" href="style.css">
     <div class="sidenav">
-      <a href="home.php">Dashboard</a>
+      <a href="home.php">Home</a>
       <a href="addProject.php" style="margin-top: 15px;">Add Project</a>
       <a href="manageProjects.php" style="margin-top: 15px;">Manage Projects</a>
       <a href="calendar/index.php" style="margin-top: 15px;">Event Calendar</a>
