@@ -54,9 +54,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
                 background-color: #212529;
             }
         </style>
-        <title>Add Report</title>
-    </head>
-    <body>
+        <title>View Report</title>
+        </head>
+        <body>
         <div class="container">
             <h3>Add Report</h3>
             <form action="<?= $_SERVER['PHP_SELF'] ?>" method="POST">
