@@ -10,7 +10,7 @@ include('configuration.php');
         $implementation_date = $_POST['implementation_date'];
         
         
-    $stmt = $db->prepare("INSERT INTO project (name, institution, implementation_date) VALUES (?, ?, ?)");
+    $stmt = $db->prepare("INSERT INTO project (name, institution, implementation_date, comments, suggestions) VALUES (?, ?, ?, 'none', 'none')");
     $stmt->bind_param("sss", $name, $inst, $impdate);
 
     //set parameters and execute
