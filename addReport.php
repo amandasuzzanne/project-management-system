@@ -58,34 +58,37 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
         </head>
         <body>
         <div class="container">
-            <h3>Add Report</h3>
-            <form action="<?= $_SERVER['PHP_SELF'] ?>" method="POST">
-                <div class="form-group row">
-                    <div class="col-sm-3">
-                        <label for="inputComment" class="col-sm-2 col-form-label">Comment:</label>
-                        <input type="comment" id="inputComment" name="comment" class="form-control">
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <div class="col-sm-3">
-                        <label for="inputSuggestions" class="col-sm-2 col-form-label">Suggestions:</label>
-                        <input type="suggestions" id="inputSuggestions" name="suggestions" class="form-control">
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <div class="col-sm-3">
-                        <label for="rating" class="col-sm-5 col-form-label">Project Rating:</label>
-                        <select name="rating" class="form-control" required>
-                            <option value="">-- Select Rating --</option>
-                                <?php
-                                    foreach(["low", "medium", "high", "excellent"] as $rating){
-                                        echo '<option value="' . strtolower($rating) . '">' . $rating . '</option>';
-                                    }
-                                ?>
-                        </select>
-                    </div>
-                </div>
-                <a href="home.php" class="btn btn-secondary col-sm-1" style="margin-top: 24px;">Back</a>
+            <h3>Report</h3>
+            <table class="table table-dark table-hover">
+                <thead>
+                    <tr> 
+                        <th>Project Name</th>
+                        <th>Institution</th>
+                        <th>Implementation Date</th>
+                        <th>Comments</th> 
+                        <th>Suggestions</th> 
+                        <th>Rating</th> 
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php $report_query = mysqli_query($db, "SELECT * FROM project WHERE id=" . $_GET['project_id']) ?>
+                    <?php while ($row = mysqli_fetch_array($report_query, MYSQLI_ASSOC)): ?>
+                        <tr>
+                            <td><?php echo $row['name'] ?></td>
+                            <td><?php echo $row['institution'] ?></td>
+                            <td><?php echo $row['implementation_date'] ?></td>
+                            <td><?php echo $row['comments'] ?></td>
+                            <td><?php echo $row['suggestions'] ?></td>
+                            <td><?php echo $row['rating'] ?></td>
+                            <td>
+                                <a href="<?php echo 'editReport.php?project_id=' . $_GET['project_id']; ?>" class='btn btn-light btn-sm'>Edit Report</a>
+                            </td>
+                        </tr>
+                    <?php endwhile; ?>
+                </tbody>
+            </table>
+            <a href="home.php" class="btn btn-secondary col-sm-1" style="margin-top: 24px;">Back</a>
                 <button type="submit" class="btn btn-primary col-sm-1" style="margin-top: 24px; margin-left: 70px;">Add</button>
             </form>
         </div>
