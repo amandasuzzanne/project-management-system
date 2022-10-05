@@ -18,7 +18,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
     $result = $stmt->execute();
 
     if (!$result) echo "<span style='color:red'>Error while adding report</span>";
-    elseif (!mysqli_affected_rows($db)) echo "<span style='color:red'>Something went wrong! Could not add report</span>";
     else {
         // close connection and redirect
         $db->close(); 
