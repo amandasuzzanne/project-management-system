@@ -2,19 +2,18 @@
 include('configuration.php'); 
 
 // get id through query string
-$id = $_GET['project_id']; 
+$id = $_GET['project_id'];
 
 // select query fetch data
-$query = mysqli_query($db, "SELECT * FROM project WHERE id = ".$id); 
+$query = mysqli_query($db, "SELECT * FROM project WHERE id = ".$id);  
 
-if($_SERVER["REQUEST_METHOD"] == "POST") 
+if(isset($_POST['update']))
 {
     $comments = $_POST['comments'];
     $suggestions = $_POST['suggestions'];
-    $ratings = $_POST['rating'];
 
-    $stmt = $db->prepare('UPDATE project SET comments = ?, suggestions = ?,  ratings = ?, WHERE id = ?');
-    $stmt->bind_param('ssss', $comments, $suggestions, $ratings, $id);
+    $stmt = $db->prepare('UPDATE project SET comments = ?, suggestions = ? WHERE id = ?');
+    $stmt->bind_param('sss', $comments, $suggestions, $id);
     $result = $stmt->execute();
 
     if (!$result) echo "<span style='color:red'>Error while adding report</span>";
@@ -56,7 +55,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
         <title>View Report</title>
         </head>
         <body>
-        <div class="container">
+        <div class="container"> 
             <h3>Report</h3>
             <table class="table table-dark table-hover">
                 <thead>
