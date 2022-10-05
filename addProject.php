@@ -81,7 +81,27 @@ include('configuration.php');
 </div>
     <button id="save_btn" type="save" class="btn btn-primary col-sm-1" name="save">Save</button>
 </form>
-</div>
 
+<table class="table table-dark table-hover mt-5" >
+<tr> <th>Project Name</th> <th>Institution</th> <th>Implementation Date</th></tr>
+<?php
+	$str = '';
+	$sql = "SELECT * FROM project WHERE status='current' ORDER BY implementation_date";
+	$result = mysqli_query($db,$sql);
+	$count = mysqli_num_rows($result);
+
+	while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC))
+	{
+	$str .= "<tr>
+	<td>".$row['name']."</td>
+	<td>".$row['institution']."</td>
+    <td>".$row['implementation_date']."</td>
+	</tr>";
+	}
+	echo $str;
+?>
+</table>
+
+</div>
 </body>
 </html> 
