@@ -3,3 +3,4 @@ This is a project management system that was coded in HTML, CSS, Bootstrap and J
 
 ## How it works
 After a successful login, the user can add projects, project tasks and track the progress.
+The task progress is displayed in a Gantt chart.
