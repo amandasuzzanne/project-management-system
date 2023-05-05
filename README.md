@@ -7,9 +7,9 @@ After a successful login, the user can add projects, project tasks and track the
 The progress of the tasks within a project are displayed in from of a Gantt chart.
 
 # Login credentials
-The admin can login using the email ***brian@gmail.com*** and the password is ***1234***
-The project manager can login using the email ***amanda@gmail.com*** and the password is ***1234***
-The user can login using the email ***amy@gmail.com*** and the password is ***1234***
+- The admin can login using the email ***brian@gmail.com*** and the password is ***1234***
+- The project manager can login using the email ***amanda@gmail.com*** and the password is ***1234***
+- The user can login using the email ***amy@gmail.com*** and the password is ***1234***
 
 ## Images of the User Interface
 ![Sample Run 1](https://user-images.githubusercontent.com/54472430/210414651-99972595-ff08-404a-83b0-027b0f134403.png)
